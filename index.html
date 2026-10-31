@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini C Compiler Dashboard</title>
+    <meta
+      name="description"
+      content="Modern static mini C compiler dashboard for GitHub Pages."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Compiler Design Lab</p>
+            <h1>Mini Compiler Dashboard</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-button" id="sampleBtn">Load sample</button>
+          <button class="primary-button" id="analyzeBtn">Analyze</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="main-panel">
+          <div class="project-card hero-card">
+            <div class="card-header">
+              <span class="chip">Project Overview</span>
+            </div>
+            <div class="hero-grid">
+              <div>
+                <h2>Build a mini C compiler dashboard</h2>
+                <p>
+                  A browser-based user interface for checking C source code,
+                  scanning tokens, and surfacing common lexical and syntax issues.
+                </p>
+              </div>
+              <div class="mini-metrics">
+                <div>
+                  <span>Language</span>
+                  <strong>C</strong>
+                </div>
+                <div>
+                  <span>Focus</span>
+                  <strong>Lex + Syntax</strong>
+                </div>
+                <div>
+                  <span>Deployment</span>
+                  <strong>GitHub Pages</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <span class="chip">Dashboard Features</span>
+            </div>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <span class="feature-icon">⌨️</span>
+                <h3>Code input</h3>
+                <p>Paste C code or upload a .c file.</p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🧠</span>
+                <h3>Token scan</h3>
+                <p>Keyword, identifier, operator, and constant detection.</p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">⚠️</span>
+                <h3>Issue report</h3>
+                <p>Highlight missing semicolons and invalid patterns.</p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">📊</span>
+                <h3>Results view</h3>
+                <p>Display tokens and validation summary in a clean table.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card tokens-card">
+            <div class="card-header split-header">
+              <span class="chip">Token Output</span>
+              <span class="status-pill" id="statusBadge">Ready</span>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Token</th>
+                    <th>Type</th>
+                    <th>Line</th>
+                  </tr>
+                </thead>
+                <tbody id="tokenTableBody">
+                  <tr>
+                    <td colspan="3" class="empty-state">No analysis yet.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <aside class="sidebar-panel">
+          <div class="project-card side-card">
+            <div class="card-header">
+              <span class="chip">Compiler Console</span>
+            </div>
+
+            <label class="editor-label" for="codeInput">C source code</label>
+            <textarea id="codeInput" spellcheck="false"></textarea>
+
+            <div class="button-row">
+              <button class="primary-button" id="analyzeBtnSidebar">Analyze code</button>
+              <button class="ghost-button" id="clearBtn">Clear</button>
+            </div>
+
+            <label class="upload-label" for="fileInput">Upload .c file</label>
+            <input type="file" id="fileInput" accept=".c" />
+
+            <div class="result-box">
+              <h3>Analysis result</h3>
+              <p id="summaryText">Waiting for input.</p>
+              <ul id="issueList"></ul>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
