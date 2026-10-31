@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini C Compiler Dashboard</title>
+    <title>Mini Compiler Dashboard</title>
     <meta
       name="description"
-      content="Modern static mini C compiler dashboard for GitHub Pages."
+      content="Modern AI-powered mini compiler dashboard for C code analysis and debugging."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -16,125 +22,168 @@
         <div class="brand-wrap">
           <div class="brand-mark">C</div>
           <div>
-            <p class="eyebrow">Compiler Design Lab</p>
+            <p class="eyebrow">Compiler design lab</p>
             <h1>Mini Compiler Dashboard</h1>
           </div>
         </div>
-        <div class="top-actions">
-          <button class="ghost-button" id="sampleBtn">Load sample</button>
-          <button class="primary-button" id="analyzeBtn">Analyze</button>
-        </div>
+
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#features">Features</a>
+          <a href="#workspace">Workspace</a>
+        </nav>
+
+        <button class="primary-button" id="launchBtn">Launch demo</button>
       </header>
 
-      <main class="layout">
-        <section class="main-panel">
-          <div class="project-card hero-card">
-            <div class="card-header">
-              <span class="chip">Project Overview</span>
+      <main class="hero" id="overview">
+        <div class="hero-copy">
+          <span class="badge">AI-powered code validation</span>
+          <h2>Build smarter C debugging workflows.</h2>
+          <p>
+            Review C source code, scan tokens, and detect common compiler issues in
+            a modern engineering dashboard designed for smoother project demos and
+            faster learning.
+          </p>
+
+          <div class="cta-row">
+            <button class="primary-button" id="heroAnalyzeBtn">Analyze code</button>
+            <button class="secondary-button" id="heroSampleBtn">Load sample</button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span>Tokens</span>
+              <strong id="tokenStat">0</strong>
             </div>
-            <div class="hero-grid">
-              <div>
-                <h2>Build a mini C compiler dashboard</h2>
-                <p>
-                  A browser-based user interface for checking C source code,
-                  scanning tokens, and surfacing common lexical and syntax issues.
-                </p>
+            <div class="stat-card">
+              <span>Issues</span>
+              <strong id="issueStat">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Health</span>
+              <strong id="healthStat">Ready</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="terminal-window">
+            <div class="window-bar">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+              <span class="window-title">compiler_status</span>
+            </div>
+
+            <div class="terminal-body">
+              <div class="terminal-row">
+                <span class="status-line ok">OK</span>
+                <span>Lexical scan completed</span>
               </div>
-              <div class="mini-metrics">
-                <div>
-                  <span>Language</span>
-                  <strong>C</strong>
-                </div>
-                <div>
-                  <span>Focus</span>
-                  <strong>Lex + Syntax</strong>
-                </div>
-                <div>
-                  <span>Deployment</span>
-                  <strong>GitHub Pages</strong>
-                </div>
+              <div class="terminal-row">
+                <span class="status-line warn">WARN</span>
+                <span>1 minor syntax check</span>
+              </div>
+              <div class="terminal-row">
+                <span class="status-line info">INFO</span>
+                <span>Token table generated</span>
+              </div>
+              <div class="terminal-row code-line">
+                <span class="prompt">&gt;_</span>
+                <span>main() return 0;</span>
               </div>
             </div>
           </div>
+        </div>
+      </main>
 
-          <div class="project-card">
-            <div class="card-header">
-              <span class="chip">Dashboard Features</span>
-            </div>
-            <div class="feature-grid">
-              <div class="feature-item">
-                <span class="feature-icon">⌨️</span>
-                <h3>Code input</h3>
-                <p>Paste C code or upload a .c file.</p>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">🧠</span>
-                <h3>Token scan</h3>
-                <p>Keyword, identifier, operator, and constant detection.</p>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">⚠️</span>
-                <h3>Issue report</h3>
-                <p>Highlight missing semicolons and invalid patterns.</p>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">📊</span>
-                <h3>Results view</h3>
-                <p>Display tokens and validation summary in a clean table.</p>
-              </div>
-            </div>
+      <section class="feature-section" id="features">
+        <div class="section-heading">
+          <span class="section-tag">Dashboard Features</span>
+          <h3>Everything needed for a clean compiler review.</h3>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⌨️</div>
+            <h4>Code input</h4>
+            <p>Paste C code directly or upload a .c file for instant inspection.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Token scan</h4>
+            <p>Highlight keywords, identifiers, operators, and numeric values.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">⚠️</div>
+            <h4>Issue report</h4>
+            <p>Surface missing semicolons, invalid syntactic patterns, and warnings.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Results view</h4>
+            <p>Present findings in a crisp, analytical interface for quick review.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace" id="workspace">
+        <aside class="editor-panel">
+          <div class="panel-header">
+            <span class="panel-tag">Compiler Console</span>
           </div>
 
-          <div class="project-card tokens-card">
-            <div class="card-header split-header">
-              <span class="chip">Token Output</span>
-              <span class="status-pill" id="statusBadge">Ready</span>
-            </div>
+          <label class="editor-label" for="codeInput">C source code</label>
+          <textarea id="codeInput" spellcheck="false"></textarea>
 
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Token</th>
-                    <th>Type</th>
-                    <th>Line</th>
-                  </tr>
-                </thead>
-                <tbody id="tokenTableBody">
-                  <tr>
-                    <td colspan="3" class="empty-state">No analysis yet.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="button-row">
+            <button class="primary-button" id="analyzeBtn">Analyze code</button>
+            <button class="secondary-button" id="clearBtn">Clear</button>
           </div>
-        </section>
 
-        <aside class="sidebar-panel">
-          <div class="project-card side-card">
-            <div class="card-header">
-              <span class="chip">Compiler Console</span>
-            </div>
-
-            <label class="editor-label" for="codeInput">C source code</label>
-            <textarea id="codeInput" spellcheck="false"></textarea>
-
-            <div class="button-row">
-              <button class="primary-button" id="analyzeBtnSidebar">Analyze code</button>
-              <button class="ghost-button" id="clearBtn">Clear</button>
-            </div>
-
+          <div class="upload-box">
             <label class="upload-label" for="fileInput">Upload .c file</label>
             <input type="file" id="fileInput" accept=".c" />
-
-            <div class="result-box">
-              <h3>Analysis result</h3>
-              <p id="summaryText">Waiting for input.</p>
-              <ul id="issueList"></ul>
-            </div>
           </div>
         </aside>
-      </main>
+
+        <div class="result-panel">
+          <div class="result-head">
+            <span class="panel-tag">Analysis result</span>
+            <span class="status-pill" id="statusBadge">Ready</span>
+          </div>
+
+          <div class="summary-box">
+            <p id="summaryText">Waiting for input.</p>
+          </div>
+
+          <div class="issues-box">
+            <h3>Detected issues</h3>
+            <ul id="issueList"></ul>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Type</th>
+                  <th>Line</th>
+                </tr>
+              </thead>
+              <tbody id="tokenTableBody">
+                <tr>
+                  <td colspan="3" class="empty-state">No analysis yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
 
     <script src="script.js"></script>
